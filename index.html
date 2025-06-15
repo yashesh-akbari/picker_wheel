@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="shortcut icon"
+      href="/images/spin_wheel.png"
+      type="image/x-icon"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/spin.css" />
+    <title>Picker wheel</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div>
+          <h1 class="nav_headling">Picker wheel</h1>
+        </div>
+        <div class="nav_left">
+          <h3><a href="/index.html">spin wheel</a></h3>
+          <h3><a href="/todo.html">Todo App</a></h3>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <h1 class="spin_headling1">Spin Wheel</h1>
+      <h3 class="spin_headling2">help you to make a random decision</h3>
+      <form id="form_submit">
+        <div class="spin_main">
+          <div>
+            <img src="./images/spin_wheel.png" width="" alt="" />
+          </div>
+          <div class="spin_left">
+            <div class="input_form">
+              <h1>INPUTS</h1>
+              <h2 style="display: flex">
+                <p>{7}/</p>
+                <p>{8}</p>
+              </h2>
+              <img
+                src="/images/randome.png"
+                width="30px"
+                style="border-radius: 20px"
+                alt=""
+              />
+              <button class="remove_all">remove all input</button>
+            </div>
+            <div class="input_div">
+              <input
+                type="text"
+                placeholder="input text"
+                class="input_text"
+                id="input_text"
+              />
+              <button class="input_button" type="submit">add</button>
+            </div>
+            <div class="output">
+              <div class="output_list">
+                <div><h3 class="output_heading">output list</h3></div>
+                <div>
+                  <button>
+                    <img src="/images/rearrage.png" width="25px" alt="" />
+                  </button>
+                  <button>
+                    <img src="/images/copy.png" alt="" width="25px" />
+                  </button>
+                  <button>
+                    <img src="/images/delete.png" alt="" width="25px" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </main>
+
+    <script>
+      document
+        .getElementById("form_submit")
+        .addEventListener("submit", (event) => {
+          event.preventDefault();
+          let arr = [];
+          let input = document.getElementById("input_text").value;
+          arr.push(input);
+          console.log(arr);
+        });
+    </script>
+  </body>
+</html>

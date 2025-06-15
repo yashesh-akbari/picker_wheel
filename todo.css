@@ -1,0 +1,191 @@
+  * {
+        margin: 0;
+        padding: 0;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        border: 2px solid black;
+        padding: 1em;
+        font-size: 3.5vh;
+        text-transform: uppercase;
+        background-color: #1c1d20;
+        color: aliceblue;
+        text-decoration: none;
+        flex-wrap: wrap;
+      }
+      a {
+        text-decoration: none;
+        color: azure;
+      }
+      a:hover {
+        color: #00ffc4;
+      }
+      .nav_headling {
+        color: #00ffc4;
+      }
+      .nav_left {
+        display: flex;
+        gap: 10px;
+        padding: 5px;
+        font-size: 2.8vh;
+      } 
+/* Todo Container */
+.todo-container {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+.todo-container h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Form Layout */
+#form_submit {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+#form_submit input[type="text"],
+#form_submit input[type="date"],
+#form_submit select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+#form_submit button {
+  margin-top: 15px;
+  padding: 12px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#form_submit button:hover {
+  background-color: #0056b3;
+}
+
+/* Table Styling */
+.table-wrapper {
+  overflow-x: auto;
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #007bff;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+/* Scrollable table wrapper */
+.table-scroll {
+  max-height: 300px; /* Adjust height as needed */
+  overflow-y: auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+/* Ensure table takes full width inside scrollable div */
+.table-scroll table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Buttons in Table */
+table button {
+  padding: 6px 12px;
+  margin: 2px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+table button:first-child {
+  background-color: #dc3545;
+  color: white;
+}
+
+table button:last-child {
+  background-color: #ffc107;
+  color: black;
+}
+
+/* Filters Section */
+.filters {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.filters h1 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.filters label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.filters select {
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  .filters h1 {
+    font-size: 18px;
+  }
+}

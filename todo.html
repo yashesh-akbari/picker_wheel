@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" href="/images/todo.png" type="image/x-icon" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/todo.css" />
+    <title>Todo app</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div>
+          <h1 class="nav_headling">Todo App</h1>
+        </div>
+        <div class="nav_left">
+          <h3><a href="/index.html">spin wheel</a></h3>
+          <h3><a href="/todo.html">Todo App</a></h3>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Form Container -->
+      <div class="todo-container">
+        <h1>TODO APP</h1>
+        <form id="form_submit">
+          <div class="form-grid">
+            <input type="text" placeholder="Write todo and hit enter" />
+            <input type="date" />
+
+            <select>
+              <option disabled selected>Select category</option>
+              <option>Health and Fitness</option>
+              <option>Study/Learning</option>
+              <option>Work/Career</option>
+              <option>Home/Chores</option>
+              <option>Sport</option>
+              <option>Notes</option>
+              <option>Other</option>
+            </select>
+
+            <select>
+              <option disabled selected>Importance level</option>
+              <option>High</option>
+              <option>Middle</option>
+              <option>Low</option>
+            </select>
+          </div>
+          <button type="submit">ADD</button>
+        </form>
+      </div>
+
+      <!-- Table Section -->
+      <h1>Scroll bar under the table</h1>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Todo's detail</th>
+              <th>Category</th>
+              <th>Importance</th>
+              <th>Date</th>
+              <th>Remaining</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Buy the car</td>
+              <td>Career</td>
+              <td>Middle</td>
+              <td>25-11-2028</td>
+              <td>2 days remain</td>
+              <td><button>Delete</button> <button>Edit</button></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Buy the farmhouse</td>
+              <td>Career</td>
+              <td>Middle</td>
+              <td>25-11-2030</td>
+              <td>2 days remain</td>
+              <td><button>Delete</button> <button>Edit</button></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Make the agency</td>
+              <td>Career</td>
+              <td>Short Term</td>
+              <td>25-11-2030</td>
+              <td>2 days remain</td>
+              <td><button>Delete</button> <button>Edit</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Filter Section -->
+      <div class="filters">
+        <h1>Total Todos: 10</h1>
+
+        <label>Filter by category:</label>
+        <select>
+          <option disabled selected>Select category</option>
+          <option>Health and Fitness</option>
+          <option>Study/Learning</option>
+          <option>Work/Career</option>
+          <option>Home/Chores</option>
+          <option>Sport</option>
+          <option>Notes</option>
+          <option>Other</option>
+        </select>
+
+        <label>Filter by importance:</label>
+        <select>
+          <option>High</option>
+          <option>Middle</option>
+          <option>Low</option>
+        </select>
+
+        <label>Filter by remaining date:</label>
+        <select>
+          <option>1-7 days</option>
+          <option>7-14 days</option>
+          <option>14+ days</option>
+        </select>
+      </div>
+    </main>
+  </body>
+</html>
