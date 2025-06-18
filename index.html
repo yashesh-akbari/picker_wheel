@@ -1,92 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link
-      rel="shortcut icon"
-      href="/images/spin_wheel.png"
-      type="image/x-icon"
-    />
+    <link rel="shortcut icon" href="/images/todo.png" type="image/x-icon" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/spin.css" />
-    <title>Picker wheel</title>
+    <link rel="stylesheet" href="/todo.css" />
+    <title>Todo app</title>
   </head>
   <body>
     <header>
       <nav>
         <div>
-          <h1 class="nav_headling">Picker wheel</h1>
+          <h1 class="nav_headling">Todo App</h1>
         </div>
         <div class="nav_left">
-          <h3><a href="/index.html">spin wheel</a></h3>
-          <h3><a href="/todo.html">Todo App</a></h3>
+          <h3><input type="search" placeholder="search your todo here" /></h3>
+          <h3><button>light mode/dark mode</button></h3>
         </div>
       </nav>
     </header>
 
     <main>
-      <h1 class="spin_headling1">Spin Wheel</h1>
-      <h3 class="spin_headling2">help you to make a random decision</h3>
-      <form id="form_submit">
-        <div class="spin_main">
-          <div>
-            <img src="./images/spin_wheel.png" width="" alt="" />
-          </div>
-          <div class="spin_left">
-            <div class="input_form">
-              <h1>INPUTS</h1>
-              <h2 style="display: flex">
-                <p>{7}/</p>
-                <p>{8}</p>
-              </h2>
-              <img
-                src="/images/randome.png"
-                width="30px"
-                style="border-radius: 20px"
-                alt=""
-              />
-              <button class="remove_all">remove all input</button>
-            </div>
-            <div class="input_div">
-              <input
-                type="text"
-                placeholder="input text"
-                class="input_text"
-                id="input_text"
-              />
-              <button class="input_button" type="submit">add</button>
-            </div>
-            <div class="output">
-              <div class="output_list">
-                <div><h3 class="output_heading">output list</h3></div>
-                <div>
-                  <button>
-                    <img src="/images/rearrage.png" width="25px" alt="" />
-                  </button>
-                  <button>
-                    <img src="/images/copy.png" alt="" width="25px" />
-                  </button>
-                  <button>
-                    <img src="/images/delete.png" alt="" width="25px" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </form>
-    </main>
+      <!-- Form Container -->
+      <div class="todo-container">
+        <h1>TODO APP</h1>
+        <form id="form_submit">
+          <div class="form-grid">
+            <input type="text" placeholder="Write todo and hit enter" />
+            <input type="date" />
 
-    <script>
-      document
-        .getElementById("form_submit")
-        .addEventListener("submit", (event) => {
-          event.preventDefault();
-          let arr = [];
-          let input = document.getElementById("input_text").value;
-          arr.push(input);
-          console.log(arr);
-        });
-    </script>
+            <select>
+              <option disabled selected>Select category</option>
+              <option>Health and Fitness</option>
+              <option>Study/Learning</option>
+              <option>Work/Career</option>
+              <option>Home/Chores</option>
+              <option>Sport</option>
+              <option>Notes</option>
+              <option>Other</option>
+            </select>
+
+            <select>
+              <option disabled selected>Importance level</option>
+              <option>High</option>
+              <option>Middle</option>
+              <option>Low</option>
+            </select>
+          </div>
+          <button type="submit">ADD</button>
+        </form>
+      </div>
+
+      <!-- Table Section -->
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Todo's detail</th>
+              <th>Category</th>
+              <th>Importance</th>
+              <th>Date</th>
+              <th>Remaining</th>
+              <th>status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Buy the car</td>
+              <td>Career</td>
+              <td>Middle</td>
+              <td>25-11-2028</td>
+              <td>2 days remain</td>
+              <td>completed</td>
+              <td><button>Delete</button> <button>Edit</button>
+              <button>mark as completed</button></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Buy the farmhouse</td>
+              <td>Career</td>
+              <td>Middle</td>
+              <td>25-11-2030</td>
+              <td>2 days remain</td>
+              <td>not completed</td>
+              <td><button>Delete</button> <button>Edit</button>
+               <button>mark as completed</button></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Make the agency</td>
+              <td>Career</td>
+              <td>Short Term</td>
+              <td>25-11-2030</td>
+              <td>2 days remain</td>
+              <td>not completed</td>
+              <td><button>Delete</button> <button>Edit</button>
+               <button>mark as completed</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Filter Section -->
+      <div class="filters">
+        <h1>Total Todos: 10</h1>
+
+        <label>Filter by category:</label>
+        <select>
+          <option disabled selected>Select category</option>
+          <option>Health and Fitness</option>
+          <option>Study/Learning</option>
+          <option>Work/Career</option>
+          <option>Home/Chores</option>
+          <option>Sport</option>
+          <option>Notes</option>
+          <option>Other</option>
+        </select>
+
+        <label>Filter by importance:</label>
+        <select>
+          <option selected disabled>select the importance</option>
+          <option>High</option>
+          <option>Middle</option>
+          <option>Low</option>
+        </select>
+
+        <label>Filter by remaining date:</label>
+        <select>
+          <option selected disabled>select date range</option>
+          <option>1-7 days</option>
+          <option>7-14 days</option>
+          <option>14+ days</option>
+        </select> 
+        <label>Filter by status</label>
+        <select>
+          <option disabled selected>select status</option>
+          <option>all task</option>
+          <option>completed task</option>
+          <option>not completed task</option>
+        </select>
+
+      </div>
+    </main>
   </body>
 </html>
