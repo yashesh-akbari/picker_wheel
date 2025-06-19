@@ -189,3 +189,71 @@ table button:last-child {
     font-size: 18px;
   }
 }
+
+
+/* light and dark mode */
+/* === Light Theme (Default) === */
+body.light-mode {
+  background-color: #f4f4f4;
+  color: #000;
+}
+
+body.light-mode nav {
+  background-color: #1c1d20;
+  color: aliceblue;
+}
+
+body.light-mode .todo-container,
+body.light-mode .filters,
+body.light-mode .table-wrapper {
+  background: #ffffff;
+  color: #000;
+}
+
+body.light-mode th {
+  background-color: #007bff;
+  color: white;
+}
+
+body.light-mode tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* === Dark Theme === */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode nav {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+body.dark-mode .nav_headling {
+  color: #00ffc4;
+}
+
+body.dark-mode .todo-container,
+body.dark-mode .filters,
+body.dark-mode .table-wrapper {
+  background: #1e1e1e;
+  color: #e0e0e0;
+}
+
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode button {
+  background-color: #333;
+  color: #e0e0e0;
+  border: 1px solid #555;
+}
+
+body.dark-mode th {
+  background-color: #444;
+  color: #fff;
+}
+
+body.dark-mode tr:nth-child(even) {
+  background-color: #2a2a2a;
+}
