@@ -19,13 +19,8 @@ document.getElementById("form_submit").addEventListener("submit", (event) => {
 
   arr.push(obj);
   localStorage.setItem("value", JSON.stringify(arr));
-
   total_todo_count();
   renderTable();
-  document.getElementById("input_text").value = "";
-document.getElementById("input_date").value = "";
-document.getElementById("input_category").selectedIndex = 0;
-document.getElementById("input_level").selectedIndex = 0;
 });
 
 window.onload = () => {
@@ -45,12 +40,14 @@ function getRemainingDays(targetDate) {
   return `${diff} day${diff === 1 ? '' : 's'} remain`;
 }
 
-let renderTable = () => {
-  let tbody = document.getElementById("todo_body");
+function renderTable(data = arr) {
+  const tbody = document.getElementById("todo_body");
   tbody.innerHTML = "";
 
-  arr.map((todo, index) => {
+  data.forEach((todo, index) => {
     let tr = document.createElement("tr");
+    let remaining = getRemainingDays(todo.input_date);
+    let remainingText = remaining < 0 ? "expired" : `${remaining} day${remaining === 1 ? '' : 's'} remain`;
 
     tr.innerHTML = `
       <td>${index + 1}</td>
@@ -58,7 +55,7 @@ let renderTable = () => {
       <td>${todo.input_category}</td>
       <td>${todo.input_level}</td>
       <td>${todo.input_date}</td>
-      <td>${getRemainingDays(todo.input_date)}</td>
+      <td>${remainingText}</td>
       <td>${todo.status}</td>
       <td>
         <button onclick="deleteTodo(${index})">Delete</button>
@@ -68,7 +65,7 @@ let renderTable = () => {
     `;
     tbody.appendChild(tr);
   });
-};
+}
 
 function deleteTodo(index) {
   arr.splice(index, 1);
@@ -96,24 +93,62 @@ function editTodo(index) {
   total_todo_count();
 }
 
-//light mode and dark mode 
-document.getElementById("themeToggle").addEventListener("click", () => {
-  const body = document.body;
-  body.classList.toggle("dark-mode");
-  body.classList.toggle("light-mode");
+//fliter the item list
+const filters = {
+  category: '',
+  importance: '',
+  daysRange: '',
+  status: ''
+};
 
-  // Optional: Save theme preference to localStorage
-  const currentTheme = body.classList.contains("dark-mode") ? "dark-mode" : "light-mode";
-  localStorage.setItem("theme", currentTheme);
+document.getElementById("filter_category").addEventListener("change", (e) => {
+  filters.category = e.target.value;
+  applyFilters();
 });
 
-// Load saved theme on reload
-window.addEventListener("DOMContentLoaded", () => {
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme) {
-    document.body.classList.remove("light-mode", "dark-mode");
-    document.body.classList.add(savedTheme);
-  }
+document.getElementById("filter_importance").addEventListener("change", (e) => {
+  filters.importance = e.target.value;
+  applyFilters();
 });
 
+document.getElementById("filter_date").addEventListener("change", (e) => {
+  filters.daysRange = e.target.value;
+  applyFilters();
+});
 
+document.getElementById("filter_status").addEventListener("change", (e) => {
+  filters.status = e.target.value;
+  applyFilters();
+});
+
+function getRemainingDays(targetDate) {
+  let today = new Date();
+  let end = new Date(targetDate);
+  let diff = Math.ceil((end - today) / (1000 * 60 * 60 * 24));
+  return diff;
+}
+
+function applyFilters() {
+  let filtered = arr.filter((todo) => {
+    const remain = getRemainingDays(todo.input_date);
+
+    const matchCategory = filters.category === "" || todo.input_category === filters.category;
+    const matchImportance = filters.importance === "" || todo.input_level === filters.importance;
+
+    const matchDays =
+      filters.daysRange === "" ||
+      (filters.daysRange === "1-7 days" && remain >= 1 && remain <= 7) ||
+      (filters.daysRange === "7-14 days" && remain >= 8 && remain <= 14) ||
+      (filters.daysRange === "14+ days" && remain > 14);
+
+    const matchStatus =
+      filters.status === "" ||
+      filters.status === "all task" ||
+      (filters.status === "completed task" && todo.status === "completed") ||
+      (filters.status === "not completed task" && todo.status === "not completed");
+
+    return matchCategory && matchImportance && matchDays && matchStatus;
+  });
+
+  renderTable(filtered);
+}
