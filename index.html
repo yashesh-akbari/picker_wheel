@@ -1,24 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="shortcut icon" href="/images/todo.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="/todo.png" type="image/x-icon" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/todo.css" />
     <title>Todo app</title>
   </head>
   <body class="light-mode">
-    <header>
-      <nav>
-        <div>
-          <h1 class="nav_headling">Todo App</h1>
-        </div>
-        <div class="nav_left">
-          <h3><button id="themeToggle">light/dark mode</button></h3>
-        </div>
-      </nav>
-    </header>
-
+    <header></header>
     <main>
       <!-- Form Container -->
       <div class="todo-container">
@@ -29,10 +19,11 @@
               type="text"
               placeholder="Write todo and hit enter"
               id="input_text"
+              required
             />
-            <input type="date" id="input_date" />
+            <input type="date" id="input_date" required />
 
-            <select id="input_category">
+            <select id="input_category" required>
               <option disabled selected>Select category</option>
               <option>Health and Fitness</option>
               <option>Study/Learning</option>
@@ -43,7 +34,7 @@
               <option>Other</option>
             </select>
 
-            <select id="input_level">
+            <select id="input_level" required>
               <option disabled selected>Importance level</option>
               <option>High</option>
               <option>Middle</option>
@@ -128,6 +119,6 @@
         </select>
       </div>
     </main>
-    <script src="./text.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>
